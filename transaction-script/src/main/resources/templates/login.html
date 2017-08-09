@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <p th:if="${param.error != ''}">Login Failed</p>
+        <p th:if="${param.error != null}">Login Failed</p>
         
         <form th:action="@{/login}" method="POST">
             <label>
@@ -16,7 +16,7 @@
                 Password: <input type="password" name="password" />
             </label>
             <input type="submit" value="Login" />
-            <input type="hidden" th:name="${csrf.parameterName}" th:value="${csrf.token}" />
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         </form>
     </body>
 </html>

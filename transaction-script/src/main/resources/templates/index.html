@@ -1,14 +1,12 @@
-<!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Index</title>
-    </head>
-    <body>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+     layout:decorator="layout">
+    <th:block layout:fragment="layout-content">
         <h1>Index</h1>
         <form th:action="@{/logout}" method="POST">
             <input type="submit" value="logout" />
             <input type="hidden" name="${csrf.parameterName}" value="${csrf.token}" />
         </form>
-    </body>
-</html>
+    </th:block>
+</div>
