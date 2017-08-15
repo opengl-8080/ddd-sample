@@ -1,3 +1,13 @@
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-web'
@@ -5,6 +15,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.hsqldb:hsqldb'
+    provided 'org.projectlombok:lombok:1.16.18'
 }
 
 jar.baseName = 'transaction-script'
