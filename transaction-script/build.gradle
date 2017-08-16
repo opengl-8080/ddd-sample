@@ -15,6 +15,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.hsqldb:hsqldb'
+    compile 'org.eclipse.collections:eclipse-collections:8.2.0'
     provided 'org.projectlombok:lombok:1.16.18'
 }
 

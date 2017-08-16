@@ -1,21 +1,24 @@
 package ts.infrastructure.user;
 
+import org.eclipse.collections.api.list.ImmutableList;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
 
 public class LoginUser implements UserDetails {
     private final User user;
+    private final ImmutableList<GrantedAuthority> grantedAuthorities;
 
-    public LoginUser(User user) {
+    public LoginUser(User user, ImmutableList<Authority> authorities) {
         this.user = user;
+        this.grantedAuthorities = authorities.collect(auth -> new SimpleGrantedAuthority(auth.getAuthority()));
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+        return this.grantedAuthorities.castToList();
     }
 
     @Override
